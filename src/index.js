@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './styles/main.scss';
+import App from './routes/App';
 
 ReactDOM.render(
-  <h1>Hola pokedex</h1>,
+  <App />,
   document.getElementById('app')
 );
