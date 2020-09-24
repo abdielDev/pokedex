@@ -1,0 +1,20 @@
+.pokemonList-container {
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.pokemonList {
+  text-align: center;
+  .pokemon-container {
+    display: inline-block;
+    width: 50%;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: $color-screen-block-pokedex;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import pokeball from '../assets/images/pokebola.svg'
 
 const Header = () => {
@@ -11,10 +12,14 @@ const Header = () => {
       <nav className="menu">
         <ul>
           <li>
-            <h3>Pokedex</h3>
+            <Link to="/pokemons">
+              <h3>Pokemones</h3>
+            </Link>
           </li>
           <li>
-            <h3>Explorar</h3>
+            <Link to="/">
+              <h3>Explorar</h3>
+            </Link>
           </li>
         </ul>
       </nav>

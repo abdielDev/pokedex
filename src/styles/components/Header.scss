@@ -18,13 +18,19 @@
   .menu ul {
     display: flex;
     li {
-      padding: 10px;
-      &:last-child {
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      h3 {
+        padding: 10px;
+      }
+      &:last-child h3 {
         border-radius: 15px;
         background-color: #31ABF7;
         box-shadow: 5px 8px #4A2557;
       }
-      &:not(:last-child) {
+      &:not(:last-child) h3 {
         margin-right: 20px;
       }
     }
