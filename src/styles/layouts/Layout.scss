@@ -22,7 +22,7 @@
     margin-bottom: 10px;
     background-color: $color-screen-pokedex;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: auto;
     @include scrollbarStyled;
   }
 

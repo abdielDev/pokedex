@@ -1,17 +1,51 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getPokemons } from '../actions/pokemonsActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const PokemonList = ({ error, loading, pokemons, getPokemons }) => {
+  const [alternLoading, setLoading] = useState(false);
+  
+  const options = {
+    rootMargin: '200px 0px 0px 0px'
+  }
+  const handleIntersection = (entries, observer) => {
+    entries.forEach(async entry => {
+      if (entry.isIntersecting) {
+        await getPokemons();
+        
+        observer.unobserve(entry.target);
+        const containers = document.querySelectorAll('.pokemon-container');
+        const lastContainer = containers[containers.length - 1];
+        observer.observe(lastContainer);
+      }
+    })
+  }
+  const observer = new IntersectionObserver(handleIntersection, options);
   useEffect(() => {
-    getPokemons();
+    const getData = async () => {
+      if (pokemons.length < 1) {
+        setLoading(true);
+        await getPokemons();
+        setLoading(false);
+      }
+      const containers = document.querySelectorAll('.pokemon-container');
+      const lastContainer = containers[containers.length - 1];
+      if (lastContainer) {
+        observer.observe(lastContainer);
+        return () => {
+          observer.unobserve(lastContainer);
+        }
+      }
+    }
+
+    getData();
   }, [])
   return (
     <div className="pokemonList-container">
       <h1>Pokemones</h1>
       <ul className="pokemonList">
-        {!loading && pokemons.map((pokemon, index) => (
+        {!alternLoading && pokemons.map((pokemon, index) => (
           <li key={ index + 1 } className="pokemon-container">
             <img src={ `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png` } alt={ pokemon.name } />
             <h4>{ pokemon.name }</h4>

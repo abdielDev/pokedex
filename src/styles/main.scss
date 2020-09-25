@@ -4,4 +4,6 @@
 @import './layouts/Layout.scss';
 
 @import './components/Header.scss';
-@import './components/PokemonList.scss';
+
+@import './containers/PokemonList.scss';
+@import './containers/PokemonSaved.scss';

@@ -1,3 +1,5 @@
 export const GET_POKEMONS = 'GET_POKEMONS';
+export const SAVE_POKEMONS = 'SAVE_POKEMONS';
+export const DELETE_POKEMONS = 'DELETE_POKEMONS';
 export const LOADING = 'LOADING_POKEMONS';
 export const ERROR = 'ERROR_POKEMONS';
