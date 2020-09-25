@@ -5,6 +5,7 @@ import PokemonList from '../containers/PokemonList';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import PokemonSaved from '../containers/PokemonSaved';
+import PokemonDetails from '../containers/PokemonDetails';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={ PokemonList } />
           <Route exact path="/pokemons" component={ PokemonSaved } />
+          <Route exact path="/pokemons/:id" component={ PokemonDetails } />
         </Switch>
       </Layout>
     </Router>

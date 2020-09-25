@@ -1,0 +1,18 @@
+.pokemonDetails {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  &-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .left {
+    & > * {
+      margin-bottom: 20px;
+    }
+  }
+}

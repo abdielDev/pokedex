@@ -1,8 +1,9 @@
-import { GET_POKEMONS, LOADING, ERROR, SAVE_POKEMONS, DELETE_POKEMONS } from '../types/pokemonsTypes';
+import { GET_POKEMONS, LOADING, ERROR, SAVE_POKEMONS, DELETE_POKEMONS, GET_POKEMON } from '../types/pokemonsTypes';
 
 const INITIAL_STATE = {
   pokemons: [],
   savedPokemons: [],
+  pokemon: {},
   loading: false,
   error: '',
   nextURL: ''
@@ -18,6 +19,13 @@ export default (state = INITIAL_STATE, action) => {
         ...action.payload.results,
       ],
       nextURL: action.payload.next ?? '',
+      error: '',
+      loading: false,
+    };
+  case GET_POKEMON:
+    return {
+      ...state,
+      pokemon: action.payload,
       error: '',
       loading: false,
     };

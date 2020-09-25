@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPokemons } from '../actions/pokemonsActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const PokemonList = ({ error, loading, pokemons, getPokemons }) => {
   const [alternLoading, setLoading] = useState(false);
@@ -47,8 +48,10 @@ const PokemonList = ({ error, loading, pokemons, getPokemons }) => {
       <ul className="pokemonList">
         {!alternLoading && pokemons.map((pokemon, index) => (
           <li key={ index + 1 } className="pokemon-container">
-            <img src={ `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png` } alt={ pokemon.name } />
-            <h4>{ pokemon.name }</h4>
+            <Link to={ `/pokemons/${index + 1}` }>
+              <img src={ `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png` } alt={ pokemon.name } />
+              <h4>{ pokemon.name }</h4>
+            </Link>
           </li>
         ))}
         {loading && <h1>Cargando...</h1>}
