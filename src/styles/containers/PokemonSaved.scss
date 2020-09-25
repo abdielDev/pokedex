@@ -1,0 +1,22 @@
+.pokemonSaved {
+  text-align: center;
+  h1 {
+    margin-bottom: 20px;
+  }
+  .pokemonSaved-divider {
+    display: grid;
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-gap: 10px;
+    h2 {
+      grid-column: span 2;
+    }
+    .pokemon-container {
+      padding: 10px;
+      border-radius: 15px;
+      background-color: $color-screen-block-pokedex;
+      button {
+        margin-top: 10px;
+      }
+    }
+  }
+}

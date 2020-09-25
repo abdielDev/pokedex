@@ -1,0 +1,11 @@
+@import './reset.scss';
+@import './variables.scss';
+
+@import './layouts/Layout.scss';
+
+@import './components/Header.scss';
+@import './components/Button.scss';
+
+@import './containers/PokemonList.scss';
+@import './containers/PokemonSaved.scss';
+@import './containers/PokemonDetails.scss';

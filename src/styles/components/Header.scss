@@ -1,0 +1,38 @@
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-background-header;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px 15px #4A2557;
+  .imgContainer {
+    display: flex;
+    align-items: center;
+    img {
+      width: 60px;
+      margin-right: 20px;
+    }
+  }
+  .menu ul {
+    display: flex;
+    li {
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      h3 {
+        padding: 10px;
+      }
+      &:last-child h3 {
+        border-radius: 15px;
+        background-color: #31ABF7;
+        box-shadow: 5px 8px #4A2557;
+      }
+      &:not(:last-child) h3 {
+        margin-right: 20px;
+      }
+    }
+  }
+}

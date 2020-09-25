@@ -29,12 +29,14 @@ module.exports = {
         test: /\.(s[ac]ss|css)$/,
         exclude: /node_modules/,
         use: [
-          MiniCSSExtractPlugin.loader,
           {
-            loader: 'css-loader'
+            loader: MiniCSSExtractPlugin.loader,
+            options: {
+              publicPath: '/'
+            }
           },
           {
-            loader: 'resolve-url-loader'
+            loader: 'css-loader',
           },
           {
             loader: 'postcss-loader',
@@ -46,6 +48,12 @@ module.exports = {
             }
           },
           {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
@@ -54,15 +62,14 @@ module.exports = {
         ]
       },
       {
-        test: /\.(svg|png|jpg|jpeg|gif|woff)$/,
+        test: /\.(svg|png|jpg|jpeg|gif|woff|ttf)$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              publicPath: 'assets/images',
-              outputPath: 'assets/images'
+              outputPath: './assets/'
             }
           }
         ]
@@ -79,7 +86,7 @@ module.exports = {
     ),
     new MiniCSSExtractPlugin({
       filename: 'styles/[name].css',
-      chunkFilename: 'styles/[id].css'
+      chunkFilename: 'styles/[id].css',
     })
   ],
 }
